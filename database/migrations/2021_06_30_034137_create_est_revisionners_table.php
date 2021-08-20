@@ -15,7 +15,7 @@ class CreateEstRevisionnersTable extends Migration
     {
         Schema::create('est_revisionners', function (Blueprint $table) {
             $table->string("libelleRevisionner");
-            $table->foreignId("estNatureRevison_id")->constrained();
+            $table->foreignId("Nature_Revison_id")->constrained();
             $table->foreignId("vehicule_id")->constrained();
             $table->timestamps();
         });
@@ -31,7 +31,7 @@ class CreateEstRevisionnersTable extends Migration
     public function down()
     {
         Schema::table('est_revisionners', function (Blueprint $table) {
-            $table->dropForeign(["estNatureRevison_id", "vehicule_id"]);
+            $table->dropForeign(["Nature_Revison_id", "vehicule_id"]);
         });
         Schema::dropIfExists('est_revisionners');
     }

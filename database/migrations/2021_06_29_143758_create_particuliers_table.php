@@ -17,7 +17,6 @@ class CreateParticuliersTable extends Migration
             $table->id();
             $table->string("nom");
             $table->string("prenom");
-            $table->string("cniParticulier");
             $table->string("emailParticulier");
             $table->string("telParticulier1");
             $table->string("telParticulier2")->nullable();

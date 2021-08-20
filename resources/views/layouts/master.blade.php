@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-	<title>Reservation et Entretient de véhicule</title>
+	<title>Reservation et Entretien de véhicule</title>
 	<meta name="description" content="Reservation et Entretient de véhicule." />
 	<meta name="keywords" content="web app, application" />
 	<meta name="author" content="hencework"/>
@@ -16,7 +16,6 @@
 
 	<!-- Morris Charts CSS -->
     <link href="{{ asset('vendors/bower_components/morris.js/morris.css')}}" rel="stylesheet" type="text/css"/>
-
 	<!-- Data table CSS -->
 	<link href="{{ asset('vendors/bower_components/datatables/media/css/jquery.dataTables.min.css')}}" rel="stylesheet" type="text/css"/>
 
@@ -41,7 +40,7 @@
 			<nav class="navbar navbar-inverse navbar-fixed-top">
 				<a id="toggle_nav_btn" class="toggle-left-nav-btn inline-block mr-20 pull-left" href="javascript:void(0);"><i class="fa fa-bars"></i></a>
 				<a href="#">
-                    <span style="font-size:2.5em;"> Réservation & Entretien de Véhicule</span>
+                    <img class="brand-img pull-left" src="{{ asset('dist/img/images.png') }}" alt="brand">
                 </a>
 				<ul class="nav navbar-right top-nav pull-right">
 					<li class="dropdown">
@@ -71,7 +70,7 @@
                     </li>
 
 					<li>
-						<a  class="active" href="javascript:void(0);" data-toggle="collapse" data-target="#dashboard_dr"><i class="icon-picture mr-10"></i>Gestion des marques <i class="fa fa-fw fa-angle-down"></i></span></a>
+						<a  class="active" href="javascript:void(0);" data-toggle="collapse" data-target="#dashboard_dr"><i class="icon-social-behance mr-10"></i>Marques Vehicule <i class="fa fa-fw fa-angle-down"></i></span></a>
 						<ul id="dashboard_dr" class="collapse collapse-level-1">
 							<li>
 								<a class="active" href="{{ route('marques.liste') }}">Liste des marques</a>
@@ -83,7 +82,7 @@
 					</li>
 
                     <li>
-						<a  class="active" href="javascript:void(0);" data-toggle="collapse" data-target="#form_dr"><i class="icon-picture mr-10"></i>Gestion des modèles <i class="fa fa-fw fa-angle-down"></i></span></a>
+						<a  class="active" href="javascript:void(0);" data-toggle="collapse" data-target="#form_dr"><i class="icon-magnet mr-10"></i>Modèles Vehicules<i class="fa fa-fw fa-angle-down"></i></span></a>
 						<ul id="form_dr" class="collapse collapse-level-1">
 							<li>
 								<a class="active" href="{{ route('modeles.liste') }}">Liste des modèles</a>
@@ -95,7 +94,7 @@
 					</li>
 
                     <li>
-						<a  class="active" href="javascript:void(0);" data-toggle="collapse" data-target="#contact_dr"><i class="icon-picture mr-10"></i>Gestion des employés <i class="fa fa-fw fa-angle-down"></i></span></a>
+						<a  class="active" href="javascript:void(0);" data-toggle="collapse" data-target="#contact_dr"><i class="icon-user mr-10"></i>Gestion des Employés <i class="fa fa-fw fa-angle-down"></i></span></a>
 						<ul id="contact_dr" class="collapse collapse-level-1">
 							<li>
 								<a class="active" href="{{ route('employes.liste') }}">Liste des employés</a>
@@ -107,7 +106,7 @@
 					</li>
 
                     <li>
-						<a  class="active" href="javascript:void(0);" data-toggle="collapse" data-target="#table_dr"><i class="icon-picture mr-10"></i>Gestion Chauffeurs <i class="fa fa-fw fa-angle-down"></i></span></a>
+						<a  class="active" href="javascript:void(0);" data-toggle="collapse" data-target="#table_dr"><i class="icon-people mr-10"></i>Gestion Chauffeurs <i class="fa fa-fw fa-angle-down"></i></span></a>
 						<ul id="table_dr" class="collapse collapse-level-1">
 							<li>
 								<a class="active" href="{{ route('chauffeurs.liste') }}">Liste des chauffeurs</a>
@@ -119,7 +118,7 @@
 					</li>
 
                     <li>
-						<a  class="active" href="javascript:void(0);" data-toggle="collapse" data-target="#icon_dr"><i class="icon-picture mr-10"></i>Gestion des Garages <i class="fa fa-fw fa-angle-down"></i></span></a>
+						<a  class="active" href="javascript:void(0);" data-toggle="collapse" data-target="#icon_dr"><i class="icon-folder-alt mr-10"></i>Gestion des Garages <i class="fa fa-fw fa-angle-down"></i></span></a>
 						<ul id="icon_dr" class="collapse collapse-level-1">
 							<li>
 								<a class="active" href="{{ route('garages.liste') }}">Liste des garages</a>
@@ -131,7 +130,7 @@
 					</li>
 
                     <li>
-						<a  class="active" href="javascript:void(0);" data-toggle="collapse" data-target="#chart_dr"><i class="icon-picture mr-10"></i>Gestion particuliers <i class="fa fa-fw fa-angle-down"></i></span></a>
+						<a  class="active" href="javascript:void(0);" data-toggle="collapse" data-target="#chart_dr"><i class="icon-user mr-10"></i>Particuliers <i class="fa fa-fw fa-angle-down"></i></span></a>
 						<ul id="chart_dr" class="collapse collapse-level-1">
 							<li>
 								<a class="active" href="{{ route('particuliers.liste') }}">Liste des particuliers</a>
@@ -143,13 +142,85 @@
 					</li>
 
                     <li>
-						<a  class="active" href="javascript:void(0);" data-toggle="collapse" data-target="#invoice_dr"><i class="icon-picture mr-10"></i>Gestion d'Entreprise <i class="fa fa-fw fa-angle-down"></i></span></a>
+						<a  class="active" href="javascript:void(0);" data-toggle="collapse" data-target="#invoice_dr"><i class="icon-user mr-10"></i>Entreprises<i class="fa fa-fw fa-angle-down"></i></span></a>
 						<ul id="invoice_dr" class="collapse collapse-level-1">
 							<li>
 								<a class="active" href="{{ route('entreprises.liste') }}">Liste des Entreprises</a>
 							</li>
 							<li>
 								<a href="{{ route('entreprises.create') }}">Nouvelle Entreprise</a>
+							</li>
+						</ul>
+					</li>
+
+                    <li>
+						<a  class="active" href="javascript:void(0);" data-toggle="collapse" data-target="#ecom_dr"><i class="icon-key mr-10"></i>Gestion des Vehicules <i class="fa fa-fw fa-angle-down"></i></span></a>
+						<ul id="ecom_dr" class="collapse collapse-level-1">
+							<li>
+								<a class="active" href="{{ route('Vehicules.liste') }}">Liste_vehicule</a>
+							</li>
+							<li>
+								<a href="{{ route('Vehicules.create') }}">Nouveau vehicule</a>
+							</li>
+						</ul>
+					</li>
+
+                    <li>
+						<a  class="active" href="javascript:void(0);" data-toggle="collapse" data-target="#app_dr"><i class="icon-info mr-10"></i>Maintenance-Vehicule <i class="fa fa-fw fa-angle-down"></i></span></a>
+						<ul id="app_dr" class="collapse collapse-level-1">
+							<li>
+								<a class="active" href="{{ route('Maintenances.liste') }}">Liste_maintenance</a>
+							</li>
+							<li>
+								<a href="{{ route('Maintenances.create') }}">Ajout_maintenance</a>
+							</li>
+						</ul>
+					</li>
+
+                    <li>
+						<a  class="active" href="javascript:void(0);" data-toggle="collapse" data-target="#dropdown_dr_lv1"><i class="icon-calender mr-10"></i>Reservation-Vehicule <i class="fa fa-fw fa-angle-down"></i></span></a>
+						<ul id="dropdown_dr_lv1" class="collapse collapse-level-1">
+							<li>
+								<a class="active" href="{{ route('reservations.liste') }}">Liste_reservation</a>
+							</li>
+							<li>
+								<a href="{{ route('reservations.create') }}">Nouvelle reservation</a>
+							</li>
+						</ul>
+					</li>
+
+                    <li>
+						<a  class="active" href="javascript:void(0);" data-toggle="collapse" data-target="#pages_dr"><i class="icon-magnifier mr-10"></i>Pièce Defectueuse <i class="fa fa-fw fa-angle-down"></i></span></a>
+						<ul id="pages_dr" class="collapse collapse-level-1">
+							<li>
+								<a class="active" href="{{ route('PieceDefectueuse.liste') }}">Liste_Pièce_Echangé</a>
+							</li>
+							<li>
+								<a href="{{ route('PieceDefectueuse.create') }}">Nouvelle Pièce</a>
+							</li>
+						</ul>
+					</li>
+
+                    <li>
+						<a  class="active" href="javascript:void(0);" data-toggle="collapse" data-target="#maps_dr"><i class="icon-user mr-10"></i>Gestion Fournisseurs <i class="fa fa-fw fa-angle-down"></i></span></a>
+						<ul id="maps_dr" class="collapse collapse-level-1">
+							<li>
+								<a class="active" href="{{ route('fournisseurs.liste') }}">liste des fournisseurs</a>
+							</li>
+							<li>
+								<a href="{{ route('fournisseurs.create') }}">Nouveau Fournisseur</a>
+							</li>
+						</ul>
+					</li>
+
+                    <li>
+						<a  class="active" href="javascript:void(0);" data-toggle="collapse" data-target="#dropdown_dr_lv2"><i class="icon-doc mr-10"></i></i>Gestion des Factures <i class="fa fa-fw fa-angle-down"></i></span></a>
+						<ul id="dropdown_dr_lv2" class="collapse collapse-level-1">
+							<li>
+								<a class="active" href="{{ route('Factures.liste') }}">Liste des factures</a>
+							</li>
+                            <li>
+								<a href="{{ route('Factures.create') }}">Nouvelle facture</a>
 							</li>
 						</ul>
 					</li>
@@ -174,7 +245,6 @@
 			<footer class="footer container-fluid pl-30 pr-30">
 				<div class="row">
 					<div class="col-sm-5">
-						<a href="index.html" class="brand mr-30"><img src="{{ asset('dist/img/logo-sm.png') }}" alt="logo"/></a>
 						{{-- <ul class="footer-link nav navbar-nav">
 							<li class="logo-footer"><a href="#">help</a></li>
 							<li class="logo-footer"><a href="#">terms</a></li>
@@ -199,6 +269,7 @@
 	<!-- JavaScript -->
 
     <!-- jQuery -->
+
     <script src="{{ asset('vendors/bower_components/jquery/dist/jquery.min.js') }} "></script>
 
     <!-- Bootstrap Core JavaScript -->
@@ -233,6 +304,12 @@
 
 	<!-- Init JavaScript -->
 	<script src="{{ asset('dist/js/init.js') }} "></script>
+
+    @if (Session::has('success'))
+        <script>
+            toastr.success("{!! Session::get('success') !!}");
+        </script>
+    @endif
 
     @yield("scripts")
 

@@ -2,10 +2,21 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Maintenance;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Garages extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'nom',
+        'numeroGarage',
+        'adresseGarage',
+    ];
+
+    public function maintenance(){
+        return $this->hasMany("Maintenance::class","maintenance_id", "id");
+    }
 }

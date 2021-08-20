@@ -18,7 +18,7 @@ class CreateLigneReservationsTable extends Migration
             $table->integer("kmArrive");
             $table->dateTime("dateDepart");
             $table->dateTime("dateArrive");
-            $table->foreignId("numeroChassiVehicule_id")->constrained();
+            $table->foreignId("vehicule_id")->constrained();
             $table->foreignId("reservation_id")->constrained();
             $table->timestamps();
         });
@@ -34,7 +34,7 @@ class CreateLigneReservationsTable extends Migration
     public function down()
     {
         Schema::table('ligne_reservations', function (Blueprint $table) {
-            $table->dropForeign(["numeroChassiVehicule_id", "reservation_id"]);
+            $table->dropForeign(["Vehicule_id", "reservation_id"]);
         });
         Schema::dropIfExists('ligne_reservations');
     }

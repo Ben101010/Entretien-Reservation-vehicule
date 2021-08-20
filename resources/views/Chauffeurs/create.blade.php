@@ -6,7 +6,7 @@
 
 @section("content")
     <!-- Title -->
-    <div class="row heading-bg  bg-red">
+    <div class="row heading-bg  bg-primary">
         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
             <h5 class="txt-light">Création de nouvau Chauffeur</h5>
         </div>
@@ -22,9 +22,23 @@
     </div>
     <!-- /Title -->
 
+    <form action={{ route('chauffeurs.store') }} method = "POST">
 
-    <div class="row">
-        <div class="col-md-6">
+        @csrf
+
+        <div class="row">
+            <div class="text-align center col-8 text-color white">
+                @if (session()->has('success'))
+                    <div class="alert alert-success">
+                        <p>
+                            <h3>{{ session()->get('success') }}</h3>
+                        </p>
+                    </div>
+                @endif
+             </div>
+
+
+        <div class="col-md-8">
             <div class="panel panel-default card-view">
                 <div class="panel-heading">
                     <div class="pull-left">
@@ -42,32 +56,32 @@
                                             <label class="control-label mb-10" for="exampleInputuname_1">Nom</label>
                                             <div class="input-group">
                                                 <div class="input-group-addon"><i class="icon-user"></i></div>
-                                                <input type="text" class="form-control" id="exampleInputuname_1" placeholder="Nom">
+                                                <input type="text" name="nom" class="form-control" placeholder="Nom" required>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label mb-10" for="exampleInputuname_1">Prenom</label>
                                             <div class="input-group">
                                                 <div class="input-group-addon"><i class="icon-user"></i></div>
-                                                <input type="text" class="form-control" id="exampleInputuname_1" placeholder="prenom">
+                                                <input type="text" name="prenom" class="form-control" placeholder="prenom" required>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label mb-10" for="exampleInputEmail_1">Téléphone</label>
                                             <div class="input-group">
                                                 <div class="input-group-addon"><i class="icon-envelope-open"></i></div>
-                                                <input type="email" class="form-control" id="exampleInputEmail_1" placeholder="+2250000000000">
+                                                <input type="text" name="telChauffeur" class="form-control" placeholder="+2250000000000"required>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label mb-10" for="exampleInputpwd_1">Numero CNI</label>
                                             <div class="input-group">
                                                 <div class="input-group-addon"><i class="icon-lock"></i></div>
-                                                <input type="password" class="form-control" id="exampleInputpwd_1" placeholder="00 000 000000">
+                                                <input type="text" name="cniChauffeur" class="form-control" placeholder="00 000 000000" required>
                                             </div>
                                         </div>
 
-                                        <button type="submit" class="btn btn-success mr-10">Envoyer</button>
+                                        <button type="submit" class="btn btn-success mr-10">Enregistrer</button>
                                         <a  href="{{ route('chauffeurs.liste') }}" class="btn btn-default">Retourner à la liste des chauffeurs</a>
                                     </form>
                                 </div>

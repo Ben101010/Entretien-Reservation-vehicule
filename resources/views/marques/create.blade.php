@@ -6,7 +6,7 @@
 
 @section("content")
     <!-- Title -->
-    <div class="row heading-bg  bg-red">
+    <div class="row heading-bg  bg-primary">
         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
             <h5 class="txt-light">Création de nouvelles marques</h5>
         </div>
@@ -21,10 +21,22 @@
         <!-- /Breadcrumb -->
     </div>
     <!-- /Title -->
+    <form action="{{route('marques.store')}}" method = "POST">
 
+        @csrf
+        <div class="row">
 
-    <div class="row">
-        <div class="col-md-6">
+                <div class="text-align center col-8 text-color white">
+                    @if (session()->has('success'))
+                        <div class="alert alert-success">
+                            <p>
+                                <h5>{{ session()->get('success') }}</h5>
+                            </p>
+                        </div>
+                    @endif
+                </div>
+
+         <div class="col-md-8">
             <div class="panel panel-default card-view">
                 <div class="panel-heading">
                     <div class="pull-left">
@@ -42,11 +54,11 @@
                                             <label class="control-label mb-10" for="exampleInputuname_1">Désignation de la marque</label>
                                             <div class="input-group">
                                                 <div class="input-group-addon"><i class="icon-user"></i></div>
-                                                <input type="text" class="form-control" id="exampleInputuname_1" placeholder="marques">
+                                                <input type="text" name="libelleMarque" class="form-control" placeholder="marques" required>
                                             </div>
                                         </div>
 
-                                        <button type="submit" class="btn btn-success mr-10">Envoyer</button>
+                                        <button type="submit" class="btn btn-success mr-10">Enregistrer</button>
                                         <a  href="{{ route('marques.liste') }}" class="btn btn-default">Retourner à la liste des marques</a>
                                     </form>
                                 </div>

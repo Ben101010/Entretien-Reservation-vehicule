@@ -24,7 +24,6 @@ class ParticuliersFactory extends Factory
         return [
             "nom"                => $this-> faker-> lastName,
             "prenom"             => $this-> faker-> firstName,
-            "cniParticulier"     => $this-> faker-> creditCardNumber,
             "emailParticulier"   => $this-> faker-> email,
             "telParticulier1"    => $this-> faker-> phoneNumber,
             "telParticulier2"    => $this-> faker-> phoneNumber,

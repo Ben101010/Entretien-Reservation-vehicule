@@ -2,15 +2,20 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Modele;
+use App\Models\Marques;
+use App\Models\Maintenance;
+use App\Models\Reservation;
+use App\Models\NatureRevision;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Vehicule extends Model
 {
     use HasFactory;
 
     public function mrqe(){
-        return $this->belongsTo("Marque::class","marque_id", "id");
+        return $this->belongsTo("Marques::class","marque_id", "id");
     }
 
     public function mdle(){
@@ -18,12 +23,18 @@ class Vehicule extends Model
     }
 
     public function reservations(){
-        return $this->belongsToMany("reservation::class","ligne_reservations","vehicule_id", "reservation_id")->withPivot('dateDepart',
+        return $this->belongsToMany("Reservation::class","ligne_reservations","vehicule_id", "reservation_id")->withPivot('dateDepart',
         'dateArrive', 'kmDepart', 'kmArrive')->withTimestamps();
     }
 
     public function natureRevisions(){
-        return $this->belongsToMany("natureRevision,::class", "est_revisionner", "vehicule_id", "natureRevision_id")->withTimestamps();
+        return $this->belongsToMany("NatureRevision,::class", "est_revisionner", "vehicule_id", "natureRevision_id")->withTimestamps();
     }
+
+
+    public function maintenances(){
+        return $this->hasMany("Maintenance::class","maintenance_id", "id");
+    }
+
 
 }
