@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -53,16 +54,25 @@ Route::get('/chauffeurs/delete/{id}', [\App\Http\Controllers\ChauffeurController
 Route::get('/garages', [\App\Http\Controllers\GarageController::class,'affichegarage'])->name("garages.liste");
 Route::get('/garages/create', [\App\Http\Controllers\GarageController::class,'formgarage'])->name("garages.create");
 Route::post('/garages/store', [\App\Http\Controllers\GarageController::class,'store'])->name("garages.store");
+Route::get('/garages/modifier/{id}', [\App\Http\Controllers\GarageController::class,'modifierGarage'])->name("garages.modifier");
+Route::post('/garages/Update', [\App\Http\Controllers\GarageController::class,'UpdateGarage'])->name("garages.update");
+Route::get('/garages/delete/{id}', [\App\Http\Controllers\GarageController::class,'delete'])->name("garages.delete");
 
     // GESTION DES PARTICULIERS
 Route::get('/particuliers', [\App\Http\Controllers\ParticulierController::class,'afficheparticulier'])->name("particuliers.liste");
 Route::get('/particuliers/create', [\App\Http\Controllers\ParticulierController::class,'formparticulier'])->name("particuliers.create");
 Route::post('/particuliers/store', [\App\Http\Controllers\ParticulierController::class,'store'])->name("particuliers.store");
+Route::get('/particuliers/modifier/{id}', [\App\Http\Controllers\ParticulierController::class,'modifierParticulier'])->name("particuliers.modifier");
+Route::post('/particuliers/Update', [\App\Http\Controllers\ParticulierController::class,'UpdateParticulier'])->name("particuliers.update");
+Route::get('/particuliers/delete/{id}', [\App\Http\Controllers\ParticulierController::class,'delete'])->name("particuliers.delete");
 
     // GESTION DES ENTREPRISES
 Route::get('/entreprises', [\App\Http\Controllers\EntrepriseController::class,'afficheentreprise'])->name("entreprises.liste");
 Route::get('/entreprises/create', [\App\Http\Controllers\EntrepriseController::class,'formentreprise'])->name("entreprises.create");
 Route::post('/entreprises/store', [\App\Http\Controllers\EntrepriseController::class,'store'])->name("entreprises.store");
+Route::get('/entreprises/modifier/{id}', [\App\Http\Controllers\EntrepriseController::class,'modifierEntreprise'])->name("entreprises.modifier");
+Route::post('/entreprises/Update', [\App\Http\Controllers\EntrepriseController::class,'UpdateEntreprise'])->name("entreprises.update");
+Route::get('/entreprises/delete/{id}', [\App\Http\Controllers\EntrepriseController::class,'delete'])->name("entreprises.delete");
 
     // GESTION DES RESERVATION
 Route::get('/reservations', [\App\Http\Controllers\ReservationController::class,'affichereservation'])->name("reservations.liste");
@@ -74,26 +84,39 @@ Route::get('/reservations/create', [\App\Http\Controllers\ReservationController:
 Route::get('/fournisseurs', [\App\Http\Controllers\FournisseurController::class,'affichefournisseur'])->name("fournisseurs.liste");
 Route::get('/fournisseurs/create', [\App\Http\Controllers\FournisseurController::class,'formfournisseur'])->name("fournisseurs.create");
 Route::post('/fournisseurs/store', [\App\Http\Controllers\FournisseurController::class,'store'])->name("fournisseurs.store");
+Route::get('/fournisseurs/modifier/{id}', [\App\Http\Controllers\FournisseurController::class,'modifierFournisseur'])->name("fournisseurs.modifier");
+Route::post('/fournisseurs/Update', [\App\Http\Controllers\FournisseurController::class,'UpdateFournisseur'])->name("fournisseurs.update");
+Route::get('/fournisseurs/delete/{id}', [\App\Http\Controllers\FournisseurController::class,'delete'])->name("fournisseurs.delete");
 
     // GESTION DES PIECES ECHANGÉES
 Route::get('/pieceDefectueuse', [\App\Http\Controllers\PieceDefectueuseController::class,'affichepiece'])->name("PieceDefectueuse.liste");
 Route::get('/pieceDefectueuse/create', [\App\Http\Controllers\PieceDefectueuseController::class,'formpiece'])->name("PieceDefectueuse.create");
-//Route::post('/pieceDefectueuse/store', [\App\Http\Controllers\EntrepriseController::class,'store'])->name("pieceDefectueuse.store");
+Route::post('/pieceDefectueuse/store', [\App\Http\Controllers\PieceDefectueuseController::class,'store'])->name("PieceDefectueuse.store");
+Route::get('/pieceDefectueuse/modifier/{id}', [\App\Http\Controllers\PieceDefectueuseController::class,'modifierPieceDefectueuse'])->name("PieceDefectueuse.modifier");
+Route::post('/pieceDefectueuse/Update', [\App\Http\Controllers\PieceDefectueuseController::class,'UpdatePieceDefectueuse'])->name("PieceDefectueuse.update");
+Route::get('/pieceDefectueuse/delete/{id}', [\App\Http\Controllers\PieceDefectueuseController::class,'delete'])->name("PieceDefectueuse.delete");
 
     // GESTION DES FACTURES
-Route::get('/facture', [\App\Http\Controllers\FactureController::class,'affichefacture'])->name("Factures.liste");
-Route::get('/facture/create', [\App\Http\Controllers\FactureController::class,'formfacture'])->name("Factures.create");
-//Route::get('/pieceDefectueuse/create', [\App\Http\Controllers\PieceDefectueuseController::class,'formpiece'])->name("PieceDefectueuse.create");
-//Route::post('/pieceDefectueuse/store', [\App\Http\Controllers\EntrepriseController::class,'store'])->name("pieceDefectueuse.store");
+Route::get('/facture/Reservation', [\App\Http\Controllers\FactureController::class,'affichefactureReservation'])->name("factures.facturesReservation");
+Route::get('/facture/Entretien', [\App\Http\Controllers\FactureController::class,'affichefactureEntretien'])->name("factures.facturesEntretien");
+//Route::get('/facture/create', [\App\Http\Controllers\PieceDefectueuseController::class,'formpiece'])->name("PieceDefectueuse.create");
+//Route::post('/facture/store', [\App\Http\Controllers\EntrepriseController::class,'store'])->name("pieceDefectueuse.store");
 
     // GESTION DES VEHICULE
 Route::get('/vehicule', [\App\Http\Controllers\VehiculeController::class,'affichevehicule'])->name("Vehicules.liste");
 Route::get('/vehicule/create', [\App\Http\Controllers\VehiculeController::class,'formvehicule'])->name("Vehicules.create");
-//Route::post('/pieceDefectueuse/store', [\App\Http\Controllers\EntrepriseController::class,'store'])->name("pieceDefectueuse.store");
+Route::post('/vehicule/store', [\App\Http\Controllers\VehiculeController::class,'store'])->name("Vehicules.store");
 
     // GESTION DES MAINTENANCES DES VEHICULES
 Route::get('/maintenance', [\App\Http\Controllers\MaintenanceController::class,'affichemaintenance'])->name("Maintenances.liste");
 Route::get('/maintenance/create', [\App\Http\Controllers\MaintenanceController::class,'formmaintenance'])->name("Maintenances.create");
+Route::post('/maintenance/store', [\App\Http\Controllers\MaintenanceController::class,'store'])->name("Maintenances.store");
+Route::get('/maintenance/modifier/{id}', [\App\Http\Controllers\MaintenanceController::class,'modifierMaintenance'])->name("Maintenances.modifier");
+Route::post('/maintenance/Update', [\App\Http\Controllers\MaintenanceController::class,'UpdateMaintenance'])->name("Maintenances.update");
+Route::get('/maintenance/delete/{id}', [\App\Http\Controllers\MaintenanceController::class,'delete'])->name("Maintenances.delete");
 
 
 
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -16,7 +16,7 @@ class Garages extends Model
         'adresseGarage',
     ];
 
-    public function maintenance(){
+    public function maintenances(){
         return $this->hasMany("Maintenance::class","maintenance_id", "id");
     }
 }

@@ -30,7 +30,7 @@
                         <h6 class="panel-title txt-dark"><u>Liste des employés</u></h6>
                     </div>
                     <div class="pull-right">
-                     <a href="{{ route('employes.create') }}" class="btn btn-default btn-rounded"><i class="icon-user-follow mr-10"></i>Nouveau Employé</a>
+                        <a href="{{ route('employes.create') }}" class="btn btn-default btn-rounded"><i class="icon-user-follow mr-10"></i>Nouveau Employé</a>
                     </div>
                     <div class="clearfix"></div>
                 </div>
@@ -45,22 +45,22 @@
                                     </p>
                                 </div>
                             @endif
-                         </div>
+                        </div>
 
                         <div class="table-wrap">
                             <div class="table-responsive">
-                                <div id="datable_1_wrapper" class="dataTables_wrapper"><div id="datable_1_filter" class="dataTables_filter"><label>Recherche:<input type="search" class="" placeholder="" aria-controls="datable_1"></label></div><table id="datable_1" class="table table-hover display  pb-30 dataTable" role="grid" aria-describedby="datable_1_info">
+                                <div id="datable_1_wrapper" class="dataTables_wrapper"><div id="datable_1_filter" class="dataTables_filter"></div>
+                                <table id="datable_1" class="table table-hover display  pb-30 dataTable" role="grid" aria-describedby="datable_1_info">
                                     <thead>
                                         <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="datable_1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="#: activate to sort column descending" style="width: 90px;">#</th><th class="sorting_asc" tabindex="0" aria-controls="datable_1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 210px;">Nom</th><th class="sorting_asc" tabindex="0" aria-controls="datable_1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="lastName: activate to sort column descending" style="width: 210px;">Prenom</th><th class="sorting_asc" tabindex="0" aria-controls="datable_1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 210px;">Téléphone</th><th class="sorting" tabindex="0" aria-controls="datable_1" rowspan="1" colspan="1" aria-label="Number: activate to sort column ascending" style="width: 210px;">Numero CNI</th><th class="sorting" tabindex="0" aria-controls="datable_1" rowspan="1" colspan="1" aria-label="Login: activate to sort column ascending" style="width: 165px;">Login</th><th class="sorting" tabindex="0" aria-controls="datable_1" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending" style="width: 500px;">Action</th></tr>
                                     </thead>
-                                    <tfoot>
-                                        <tr><th rowspan="1" colspan="1">#</th><th rowspan="1" colspan="1">Nom</th><th rowspan="1" colspan="1">Prenom</th><th rowspan="1" colspan="1">Téléphone</th><th rowspan="1" colspan="1">Numéro CNI</th><th rowspan="1" colspan="1">Login</th><th rowspan="1" colspan="1">Action</th></tr>
-                                    </tfoot>
-                                    @foreach ($employes as $employe)
+
+
 
                                     <tbody>
+                                        @foreach ($employes as $employe)    
                                         <tr role="row" class="odd">
-                                            <td class="sorting_1">{{ $loop->index + 1 }}</td>
+                                            <td class="sorting_1">E{{ $loop->index + 1 }}</td>
                                             <td>{{ $employe->nom }}</td>
                                             <td>{{ $employe->prenom }}</td>
                                             <td>{{ $employe->telEmploye }}</td>
@@ -73,11 +73,13 @@
                                         </tr>
                                         @endforeach
                                     </tbody>
-
+                                    <tfoot>
+                                        <tr><th rowspan="1" colspan="1">#</th><th rowspan="1" colspan="1">Nom</th><th rowspan="1" colspan="1">Prenom</th><th rowspan="1" colspan="1">Téléphone</th><th rowspan="1" colspan="1">Numéro CNI</th><th rowspan="1" colspan="1">Login</th><th rowspan="1" colspan="1">Action</th></tr>
+                                    </tfoot>
                                 </table>
-                                <div class="dataTables_paginate paging_simple_numbers" id="datable_1_paginate">
+                                    <div class="dataTables_paginate paging_simple_numbers" id="datable_1_paginate">
+                                    </div>
                                 </div>
-                             </div>
                             </div>
                         </div>
                     </div>
@@ -85,5 +87,13 @@
             </div>
         </div>
     </div>
+
+@endsection
+@section('scripts')
+    <script>
+    $(document).ready( function () {
+            $('#datable_1').dataTable();
+        } );
+    </script>
 
 @endsection

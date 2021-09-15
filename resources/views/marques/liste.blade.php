@@ -32,7 +32,9 @@
                     <div class="pull-right">
                         <a href="{{ route('marques.create') }}" class="btn btn-default btn-rounded"><i class="icon-user-follow mr-10"></i>Nouvelle marque</a>
                     </div>
-                    <div class="clearfix"></div>
+                    <div class="clearfix">
+
+                    </div>
                 </div>
                 <div class="panel-wrapper collapse in">
                     <div class="panel-body">
@@ -49,22 +51,22 @@
 
                         <div class="table-wrap">
                             <div class="table-responsive">
-                                <div id="datable_1_wrapper" class="dataTables_wrapper"><div class="dataTables_length" id="datable_1_length"></div><div id="datable_1_filter" class="dataTables_filter"><label>Recherche:<input type="search" class="" placeholder="" aria-controls="datable_1"></label></div><table id="datable_1" class="table table-hover display  pb-30 dataTable" role="grid" aria-describedby="datable_1_info">
+                                <div id="datable_1_wrapper" class="dataTables_wrapper"><div class="dataTables_length" id="datable_1_length"></div><div id="datable_1_filter" class="dataTables_filter"></div>
+                                <table id="myTable1" class="table table-hover display  pb-30 dataTable" role="grid" aria-describedby="datable_1_info">
                                     <thead>
                                         <tr role="row">
-                                            <th class="sorting_asc" tabindex="0" aria-controls="datable_1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="#: activate to sort column descending" style="width: 90px;">#</th><th class="sorting_asc" tabindex="0" aria-controls="datable_1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Marque: activate to sort column descending" style="width: 210px;">La marque du Véhicule</th><th class="sorting" tabindex="0" aria-controls="datable_1" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending" style="width: 500px;">Action</th></tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr><th rowspan="1" colspan="1">#</th>
-                                            <th rowspan="1" colspan="1">La marque du Véhicule</th>
-                                            <th rowspan="1" colspan="1">Action</th>
+                                            <th class="sorting_asc" tabindex="0" aria-controls="datable_1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="#: activate to sort column descending" style="width: 90px;">#</th>
+                                            <th class="sorting_asc" tabindex="0" aria-controls="datable_1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Marque: activate to sort column descending" style="width: 210px;">La marque du Véhicule</th>
+                                            <th class="sorting" tabindex="0" aria-controls="datable_1" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending" style="width: 500px;">Action</th>
                                         </tr>
-                                    </tfoot>
-                                    @foreach ($marques as $marque)
+                                    </thead>
+
+
 
                                     <tbody>
+                                        @foreach ($marques as $marque)
                                         <tr role="row" class="odd">
-                                            <td class="sorting_1">{{ $loop->index + 1 }}</td>
+                                            <td class="sorting_1">M{{ $loop->index + 1 }}</td>
                                             <td>{{ $marque->libelleMarque }}</td>
                                             <td>
                                                 <a href="{{ route('marques.modifier', ['id'=>$marque->id]) }}" class="btn btn-info btn-anim"><i class="fa fa-pencil-square-o"></i><span class="btn-text">Modifier</span></a>
@@ -73,14 +75,33 @@
                                         </tr>
                                         @endforeach
                                     </tbody>
-
-                                </table><div class="dataTables_info" id="datable_1_info" role="status" aria-live="polite"></div><div class="dataTables_paginate paging_simple_numbers" id="datable_1_paginate"><a class="paginate_button previous disabled" aria-controls="datable_1" data-dt-idx="0" tabindex="0" id="datable_1_previous"></div></div>
-                            </div>
+                                    <tfoot>
+                                        <tr>
+                                            <th rowspan="1" colspan="1">#</th>
+                                            <th rowspan="1" colspan="1">La marque du Véhicule</th>
+                                            <th rowspan="1" colspan="1">Action</th>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                                <div class="dataTables_info" id="datable_1_info" role="status" aria-live="polite"></div>
+                                <div class="dataTables_paginate paging_simple_numbers" id="datable_1_paginate"><a class="paginate_button previous disabled" aria-controls="datable_1" data-dt-idx="0" tabindex="0" id="datable_1_previous"></div>
+                                </div>
+                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
 @endsection
+
+    @section('scripts')
+    <script>
+    $(document).ready( function () {
+            $('#myTable1').dataTable();
+        } );
+    </script>
+
+    @endsection
+
+

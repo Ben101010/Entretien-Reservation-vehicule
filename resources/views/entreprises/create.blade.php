@@ -95,7 +95,7 @@
                                         </div>
 
                                         <button type="submit" class="btn btn-success mr-10">Enregistrer</button>
-                                        <a  href="{{ route('entreprises.liste') }}" class="btn btn-default">Retourner à la liste des entreprises</a>
+                                        <a  href="{{ route('entreprises.liste') }}" class="btn btn-default">Liste des entreprises</a>
                                     </form>
                                 </div>
                             </div>

@@ -80,7 +80,7 @@
                                             </div>
                                         </div>
                                         <button type="submit" class="btn btn-success mr-10">Enregistrer</button>
-                                        <a  href="{{ route('fournisseurs.liste') }}" class="btn btn-default">Retourner à la liste des forunisseurs</a>
+                                        <a  href="{{ route('fournisseurs.liste') }}" class="btn btn-default">Liste des forunisseurs</a>
                                     </form>
                                 </div>
                             </div>

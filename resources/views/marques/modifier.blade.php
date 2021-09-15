@@ -8,7 +8,7 @@
     <!-- Title -->
     <div class="row heading-bg  bg-primary">
         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-            <h5 class="txt-light">Création de nouvelles marques</h5>
+            <h5 class="txt-light">MODIFICATION</h5>
         </div>
         <!-- Breadcrumb -->
         {{-- <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">

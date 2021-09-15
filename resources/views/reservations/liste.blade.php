@@ -39,7 +39,7 @@
 
                         <div class="table-wrap table-striped">
                             <div class="table-responsive">
-                                <div id="datable_1_wrapper" class="dataTables_wrapper"><div class="dataTables_length" id="datable_1_length"></div><div id="datable_1_filter" class="dataTables_filter"><label>Recherche:<input type="search" class="" placeholder="" aria-controls="datable_1"></label></div><table id="datable_1" class="table table-hover display  pb-30 dataTable" role="grid" aria-describedby="datable_1_info">
+                                <div id="datable_1_wrapper" class="dataTables_wrapper"><div class="dataTables_length" id="datable_1_length"></div><table id="datable_1" class="table table-hover display  pb-30 dataTable" role="grid" aria-describedby="datable_1_info">
                                     <thead>
                                         <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="datable_1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="#: activate to sort column descending" style="width: 90px;">#</th>
                                             <th class="sorting_asc" tabindex="0" aria-controls="datable_1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 210px;">Client</th>
@@ -47,7 +47,7 @@
                                             <th class="sorting_asc" tabindex="0" aria-controls="datable_1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Numéro: activate to sort column descending" style="width: 210px;">Debut-Reservation</th>
                                             <th class="sorting" tabindex="0" aria-controls="datable_1" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending" style="width: 210px;">Fin Reservation</th>
                                             <th class="sorting" tabindex="0" aria-controls="datable_1" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending" style="width: 210px;">Coût Reservation</th>
-                                            <th class="sorting" tabindex="0" aria-controls="datable_1" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending" style="width: 210px;">Etat Reservation</th>
+                                            <th class="sorting" tabindex="0" aria-controls="datable_1" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending" style="width: 210px;">Status</th>
                                             <th class="sorting" tabindex="0" aria-controls="datable_1" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending" style="width: 500px;">Action</th></tr>
                                     </thead>
                                     <tfoot>
@@ -57,7 +57,7 @@
                                             <th rowspan="1" colspan="1">Debut-Reservation</th>
                                             <th rowspan="1" colspan="1">Fin-Reservation</th>
                                             <th rowspan="1" colspan="1">Coût Resrvation</th>
-                                            <th rowspan="1" colspan="1">Etat Reservation</th>
+                                            <th rowspan="1" colspan="1">Status</th>
                                             <th rowspan="1" colspan="1">Action</th></tr>
                                     </tfoot>
 
@@ -87,5 +87,14 @@
             </div>
         </div>
     </div>
+
+@endsection
+
+@section('scripts')
+    <script>
+    $(document).ready( function () {
+            $('#datable_1').dataTable();
+        } );
+    </script>
 
 @endsection

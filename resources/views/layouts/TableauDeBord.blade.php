@@ -19,11 +19,14 @@
 
 	<!-- Data table CSS -->
 	<link href="{{ asset('vendors/bower_components/datatables/media/css/jquery.dataTables.min.css')}}" rel="stylesheet" type="text/css"/>
-
 	<link href="{{ asset('vendors/bower_components/jquery-toast-plugin/dist/jquery.toast.min.css')}}" rel="stylesheet" type="text/css">
+
 
 	<!-- Custom CSS -->
 	<link href="{{ asset('dist/css/style.css')}}" rel="stylesheet" type="text/css">
+
+    <!-- Bootstrap Colorpicker CSS -->
+	<link href="{{ asset('vendors/bower_components/mjolnic-bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css') }}" rel="stylesheet" type="text/css"/>
 
 
     @yield("styles")
@@ -72,169 +75,217 @@
                     </li>
 
 					<li>
-						<a  class="active" href="javascript:void(0);" data-toggle="collapse" data-target="#dashboard_dr"><i class="icon-social-behance mr-10"></i>Marques Vehicule<i class="fa fa-fw fa-angle-down"></i></span></a>
-						<ul id="dashboard_dr" class="collapse collapse-level-1 active" >
+						<a  class="active" href="javascript:void(0);" data-toggle="collapse" data-target="#ui_dr"><i class="icon-social-behance mr-10"></i>GESTION RESERVATION<i class="fa fa-fw fa-angle-down"></i></span></a>
+						<ul id="ui_dr" class="collapse collapse-level-1 active" >
 							<li>
-								<a class="active" href="{{ route('marques.liste') }}">Liste des marques</a>
+								<a  class="active" href="javascript:void(0);" data-toggle="collapse" data-target="#dashboard_dr"><i class="icon-social-behance mr-10"></i>Marques Vehicule<i class="fa fa-fw fa-angle-down"></i></span></a>
+                                    <ul id="dashboard_dr" class="collapse collapse-level-1 active" >
+                                        <li>
+                                            <a class="active" href="{{ route('marques.liste') }}">Liste des marques</a>
+                                        </li>
+
+                                        <li>
+                                            <a class="active" href="{{ route('marques.create') }}">Nouvelle marque</a>
+                                        </li>
+                                    </ul>
 							</li>
 
 							<li>
-								<a class="active" href="{{ route('marques.create') }}">Nouvelle marque</a>
+								<a  class="active" href="javascript:void(0);" data-toggle="collapse" data-target="#form_dr"><i class="icon-magnet mr-10"></i>Modèles Vehicule<i class="fa fa-fw fa-angle-down"></i></span></a>
+								<ul id="form_dr" class="collapse collapse-level-1">
+									<li>
+										<a class="active" href="{{ route('modeles.liste') }}">Liste des modèles</a>
+									</li>
+									<li>
+										<a href="{{ route('modeles.create') }}">Nouveau modèle</a>
+									</li>
+								</ul>
 							</li>
+
+							<li>
+								<a  class="active" href="javascript:void(0);" data-toggle="collapse" data-target="#contact_dr"><i class="icon-user mr-10"></i>Employés <i class="fa fa-fw fa-angle-down"></i></span></a>
+								<ul id="contact_dr" class="collapse collapse-level-1">
+									<li>
+										<a class="active" href="{{ route('employes.liste') }}">Liste des employés</a>
+									</li>
+									<li>
+										<a href="{{ route('employes.create') }}">Nouveau employés</a>
+									</li>
+								</ul>
+							</li>
+
+							<li>
+								<a  class="active" href="javascript:void(0);" data-toggle="collapse" data-target="#table_dr"><i class="icon-people mr-10"></i>Chauffeurs <i class="fa fa-fw fa-angle-down"></i></span></a>
+								<ul id="table_dr" class="collapse collapse-level-1">
+									<li>
+										<a class="active" href="{{ route('chauffeurs.liste') }}">Liste des chauffeurs</a>
+									</li>
+									<li>
+										<a href="{{ route('chauffeurs.create') }}">Nouveau Chauffeur</a>
+									</li>
+								</ul>
+							</li>
+
+
+
+							<li>
+								<a  class="active" href="javascript:void(0);" data-toggle="collapse" data-target="#chart_dr"><i class="icon-user mr-10"></i>Particuliers <i class="fa fa-fw fa-angle-down"></i></span></a>
+								<ul id="chart_dr" class="collapse collapse-level-1">
+									<li>
+										<a class="active" href="{{ route('particuliers.liste') }}">Liste des particuliers</a>
+									</li>
+									<li>
+										<a href="{{ route('particuliers.create') }}">Nouveau particulier</a>
+									</li>
+								</ul>
+							</li>
+
+							<li>
+								<a  class="active" href="javascript:void(0);" data-toggle="collapse" data-target="#invoice_dr"><i class="icon-user mr-10"></i>Entreprises <i class="fa fa-fw fa-angle-down"></i></span></a>
+								<ul id="invoice_dr" class="collapse collapse-level-1">
+									<li>
+										<a class="active" href="{{ route('entreprises.liste') }}">Liste des Entreprises</a>
+									</li>
+									<li>
+										<a href="{{ route('entreprises.create') }}">Nouvelle Entreprise</a>
+									</li>
+								</ul>
+							</li>
+
+							<li>
+								<a  class="active" href="javascript:void(0);" data-toggle="collapse" data-target="#ecom_dr"><i class="icon-key mr-10"></i>Vehicules <i class="fa fa-fw fa-angle-down"></i></span></a>
+								<ul id="ecom_dr" class="collapse collapse-level-1">
+									<li>
+										<a class="active" href="{{ route('Vehicules.liste') }}">Liste_vehicule</a>
+									</li>
+									<li>
+										<a href="{{ route('Vehicules.create') }}">Nouveau vehicule</a>
+									</li>
+								</ul>
+							</li>
+
+
+							<li>
+								<a  class="active" href="javascript:void(0);" data-toggle="collapse" data-target="#dropdown_dr_lv1"><i class="icon-calender mr-10"></i>Reservation-Vehicule<i class="fa fa-fw fa-angle-down"></i></span></a>
+								<ul id="dropdown_dr_lv1" class="collapse collapse-level-1">
+									<li>
+										<a class="active" href="{{ route('reservations.liste') }}">Liste_reservation</a>
+									</li>
+									<li>
+										<a href="{{ route('reservations.create') }}">Nouvelle reservation</a>
+									</li>
+								</ul>
+							</li>
+
+
+
+							<li>
+								<a  class="active" href="javascript:void(0);" data-toggle="collapse" data-target="#dropdown_dr_lv2"><i class="icon-doc mr-10"></i>Factures <i class="fa fa-fw fa-angle-down"></i></span></a>
+								<ul id="dropdown_dr_lv2" class="collapse collapse-level-1">
+									<li>
+										<a class="active" href="{{ route('factures.facturesReservation') }}">Facture-Reservation</a>
+									</li>
+								</ul>
+							</li>
+
 						</ul>
-					</li>
 
-                    <li>
-						<a  class="active" href="javascript:void(0);" data-toggle="collapse" data-target="#form_dr"><i class="icon-magnet mr-10"></i>Modèles Vehicule<i class="fa fa-fw fa-angle-down"></i></span></a>
-						<ul id="form_dr" class="collapse collapse-level-1">
-							<li>
-								<a class="active" href="{{ route('modeles.liste') }}">Liste des modèles</a>
-							</li>
-							<li>
-								<a href="{{ route('modeles.create') }}">Nouveau modèle</a>
-							</li>
-						</ul>
-					</li>
 
-                    <li>
-						<a  class="active" href="javascript:void(0);" data-toggle="collapse" data-target="#contact_dr"><i class="icon-user mr-10"></i>Gestion des employés <i class="fa fa-fw fa-angle-down"></i></span></a>
-						<ul id="contact_dr" class="collapse collapse-level-1">
-							<li>
-								<a class="active" href="{{ route('employes.liste') }}">Liste des employés</a>
-							</li>
-							<li>
-								<a href="{{ route('employes.create') }}">Nouveau employés</a>
-							</li>
-						</ul>
-					</li>
+                        <a  class="active" href="javascript:void(0);" data-toggle="collapse" data-target="#email_dr"><i class="icon-social-behance mr-10"></i>GESTION ENTRETIEN<i class="fa fa-fw fa-angle-down"></i></span></a>
+                        <ul id="email_dr" class="collapse collapse-level-1 active" >
 
-                    <li>
-						<a  class="active" href="javascript:void(0);" data-toggle="collapse" data-target="#table_dr"><i class="icon-people mr-10"></i>Gestion Chauffeurs <i class="fa fa-fw fa-angle-down"></i></span></a>
-						<ul id="table_dr" class="collapse collapse-level-1">
-							<li>
-								<a class="active" href="{{ route('chauffeurs.liste') }}">Liste des chauffeurs</a>
-							</li>
-							<li>
-								<a href="{{ route('chauffeurs.create') }}">Nouveau Chauffeur</a>
-							</li>
-						</ul>
-					</li>
-
-                    <li>
-						<a  class="active" href="javascript:void(0);" data-toggle="collapse" data-target="#icon_dr"><i class="icon-folder-alt mr-10"></i>Gestion des Garages <i class="fa fa-fw fa-angle-down"></i></span></a>
-						<ul id="icon_dr" class="collapse collapse-level-1">
-							<li>
-								<a class="active" href="{{ route('garages.liste') }}">Liste des garages</a>
-							</li>
-							<li>
-								<a href="{{ route('garages.create') }}">Nouveau garage</a>
-							</li>
-						</ul>
-					</li>
-
-                    <li>
-						<a  class="active" href="javascript:void(0);" data-toggle="collapse" data-target="#chart_dr"><i class="icon-user mr-10"></i>Particuliers <i class="fa fa-fw fa-angle-down"></i></span></a>
-						<ul id="chart_dr" class="collapse collapse-level-1">
-							<li>
-								<a class="active" href="{{ route('particuliers.liste') }}">Liste des particuliers</a>
-							</li>
-							<li>
-								<a href="{{ route('particuliers.create') }}">Nouveau particulier</a>
-							</li>
-						</ul>
-					</li>
-
-                    <li>
-						<a  class="active" href="javascript:void(0);" data-toggle="collapse" data-target="#invoice_dr"><i class="icon-user mr-10"></i>Entreprises <i class="fa fa-fw fa-angle-down"></i></span></a>
-						<ul id="invoice_dr" class="collapse collapse-level-1">
-							<li>
-								<a class="active" href="{{ route('entreprises.liste') }}">Liste des Entreprises</a>
-							</li>
-							<li>
-								<a href="{{ route('entreprises.create') }}">Nouvelle Entreprise</a>
-							</li>
-						</ul>
-					</li>
-
-                    <li>
-						<a  class="active" href="javascript:void(0);" data-toggle="collapse" data-target="#ecom_dr"><i class="icon-key mr-10"></i>Gestion des Vehicules <i class="fa fa-fw fa-angle-down"></i></span></a>
-						<ul id="ecom_dr" class="collapse collapse-level-1">
-							<li>
-								<a class="active" href="{{ route('Vehicules.liste') }}">Liste_vehicule</a>
-							</li>
-							<li>
-								<a href="{{ route('Vehicules.create') }}">Nouveau vehicule</a>
-							</li>
-						</ul>
-					</li>
-
-                    <li>
-						<a  class="active" href="javascript:void(0);" data-toggle="collapse" data-target="#app_dr"><i class="icon-info mr-10"></i>Maintenance-Vehicule <i class="fa fa-fw fa-angle-down"></i></span></a>
-						<ul id="app_dr" class="collapse collapse-level-1">
-							<li>
-								<a class="active" href="{{ route('Maintenances.liste') }}">Liste_maintenance</a>
-							</li>
-							<li>
-								<a href="{{ route('Maintenances.create') }}">Ajout_maintenace</a>
-							</li>
-						</ul>
-					</li>
-
-                    <li>
-						<a  class="active" href="javascript:void(0);" data-toggle="collapse" data-target="#dropdown_dr_lv1"><i class="icon-calender mr-10"></i>Reservation-Vehicule<i class="fa fa-fw fa-angle-down"></i></span></a>
-						<ul id="dropdown_dr_lv1" class="collapse collapse-level-1">
-							<li>
-								<a class="active" href="{{ route('reservations.liste') }}">Liste_reservation</a>
-							</li>
-							<li>
-								<a href="{{ route('reservations.create') }}">Nouvelle reservation</a>
-							</li>
-						</ul>
-					</li>
-
-                    <li>
-						<a  class="active" href="javascript:void(0);" data-toggle="collapse" data-target="#pages_dr"><i class="icon-magnifier mr-10"></i>Pièce Defectueuse <i class="fa fa-fw fa-angle-down"></i></span></a>
-						<ul id="pages_dr" class="collapse collapse-level-1">
-							<li>
-								<a class="active" href="{{ route('PieceDefectueuse.liste') }}">Liste_Pièce_Echangé</a>
-							</li>
-							<li>
-								<a href="{{ route('PieceDefectueuse.create') }}">Nouvelle Pièce</a>
-							</li>
-						</ul>
-					</li>
-
-                    <li>
-						<a  class="active" href="javascript:void(0);" data-toggle="collapse" data-target="#maps_dr"><i class="icon-user mr-10"></i>Gestion Fournisseurs <i class="fa fa-fw fa-angle-down"></i></span></a>
-						<ul id="maps_dr" class="collapse collapse-level-1">
-							<li>
-								<a class="active" href="{{ route('fournisseurs.liste') }}">liste des fournisseurs</a>
-							</li>
-							<li>
-								<a href="{{ route('fournisseurs.create') }}">Nouveau Fournisseur</a>
-							</li>
-						</ul>
-					</li>
-
-                    <li>
-						<a  class="active" href="javascript:void(0);" data-toggle="collapse" data-target="#dropdown_dr_lv2"><i class="icon-doc mr-10"></i>Gestion des Factures <i class="fa fa-fw fa-angle-down"></i></span></a>
-						<ul id="dropdown_dr_lv2" class="collapse collapse-level-1">
-							<li>
-								<a class="active" href="{{ route('Factures.liste') }}">Liste des factures</a>
-							</li>
                             <li>
-								<a href="{{ route('Factures.create') }}">Nouvelle facture</a>
+								<a  class="active" href="javascript:void(0);" data-toggle="collapse" data-target="#pages_dr"><i class="icon-magnifier mr-10"></i>Pièce Defectueuse <i class="fa fa-fw fa-angle-down"></i></span></a>
+								<ul id="pages_dr" class="collapse collapse-level-1">
+									<li>
+										<a class="active" href="{{ route('PieceDefectueuse.liste') }}">Liste_Pièce_Echangé</a>
+									</li>
+									<li>
+										<a href="{{ route('PieceDefectueuse.create') }}">Nouvelle Pièce</a>
+									</li>
+								</ul>
 							</li>
-						</ul>
-					</li>
 
+                            <li>
+								<a  class="active" href="javascript:void(0);" data-toggle="collapse" data-target="#maps_dr"><i class="icon-user mr-10"></i>Fournisseurs <i class="fa fa-fw fa-angle-down"></i></span></a>
+								<ul id="maps_dr" class="collapse collapse-level-1">
+									<li>
+										<a class="active" href="{{ route('fournisseurs.liste') }}">liste des fournisseurs</a>
+									</li>
+									<li>
+										<a href="{{ route('fournisseurs.create') }}">Nouveau Fournisseur</a>
+									</li>
+								</ul>
+							</li>
+
+                            <li>
+								<a  class="active" href="javascript:void(0);" data-toggle="collapse" data-target="#ecom_dr"><i class="icon-key mr-10"></i>Vehicules <i class="fa fa-fw fa-angle-down"></i></span></a>
+								<ul id="ecom_dr" class="collapse collapse-level-1">
+									<li>
+										<a class="active" href="{{ route('Vehicules.liste') }}">Liste_vehicule</a>
+									</li>
+									<li>
+										<a href="{{ route('Vehicules.create') }}">Nouveau vehicule</a>
+									</li>
+								</ul>
+							</li>
+
+                            <li>
+								<a  class="active" href="javascript:void(0);" data-toggle="collapse" data-target="#icon_dr"><i class="icon-folder-alt mr-10"></i>Garages <i class="fa fa-fw fa-angle-down"></i></span></a>
+								<ul id="icon_dr" class="collapse collapse-level-1">
+									<li>
+										<a class="active" href="{{ route('garages.liste') }}">Liste des garages</a>
+									</li>
+									<li>
+										<a href="{{ route('garages.create') }}">Nouveau garage</a>
+									</li>
+								</ul>
+							</li>
+
+                            <li>
+								<a  class="active" href="javascript:void(0);" data-toggle="collapse" data-target="#app_dr"><i class="icon-info mr-10"></i>Maintenance-Vehicule <i class="fa fa-fw fa-angle-down"></i></span></a>
+								<ul id="app_dr" class="collapse collapse-level-1">
+									<li>
+										<a class="active" href="{{ route('Maintenances.liste') }}">Liste_maintenance</a>
+									</li>
+									<li>
+										<a href="{{ route('Maintenances.create') }}">Ajout_maintenace</a>
+									</li>
+								</ul>
+							</li>
+
+                            <li>
+								<a  class="active" href="javascript:void(0);" data-toggle="collapse" data-target="#dropdown_dr_lv2"><i class="icon-doc mr-10"></i>Factures <i class="fa fa-fw fa-angle-down"></i></span></a>
+								<ul id="dropdown_dr_lv2" class="collapse collapse-level-1">
+									<li>
+										<a class="active" href="{{ route('factures.facturesEntretien') }}">Facture-Entretien</a>
+									</li>
+
+								</ul>
+							</li>
+
+                        </ul>
+
+
+
+
+					</li>
 				</ul>
 			</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 			<!-- /Left Sidebar Menu -->
-
-
-
-
 
             <!-- Main Content -->
 		<div class="page-wrapper">
@@ -269,6 +320,11 @@
 								</div>
 							</div>
 						</div>
+
+
+
+
+
 						<div class="panel panel-default card-view pa-0">
 							<div class="panel-wrapper collapse in">
 								<div class="panel-body pa-0">
@@ -279,7 +335,7 @@
 											</div>
 											<div class="col-xs-7 text-center data-wrap-right">
 												<h6 class="txt-light"><strong>NOMBRE DE CLIENTS</strong></h6>
-												<span class="txt-light counter">8</span>
+												<span class="txt-light counter"><?= $data; ?></span>
 											</div>
 										</div>
 									</div>
@@ -424,6 +480,11 @@
      <script src="{{ asset('dist/js/morris-data.js') }} "></script>
 
 	 <script src="{{ asset('vendors/bower_components/jquery-toast-plugin/dist/jquery.toast.min.js') }} "></script>
+
+     <!-- Bootstrap Colorpicker JavaScript -->
+	<script src="{{ asset('vendors/bower_components/mjolnic-bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js')}}"></script>
+    <!-- Bootstrap Colorpicker JavaScript -->
+    <script src="{{ asset('vendors/bower_components/mjolnic-bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js')}}"></script>
 
 	 <!-- Init JavaScript -->
 	 <script src="{{ asset('dist/js/init.js') }} "></script>

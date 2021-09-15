@@ -51,52 +51,58 @@
                             <div class="col-sm-12 col-xs-12">
                                 <div class="form-wrap">
                                     <form>
-                                        <div class="form-group">
+                                        <div class="form-group col-md-6">
                                             <label class="control-label mb-10" for="exampleInputuname_1">Client</label>
-                                            <select class="form-control">
-                                                <option>----</option>
-                                                <option>Particulier</option>
-                                                <option>Entreprise</option>
-                                            </select>
+                                            <div class="input-group">
+                                                <div class="input-group-addon"><i class="icon-user"></i></div>
+                                                <input type="numeric" name="coutReservation" class="form-control" placeholder="nom" required>
+                                            </div>
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group col-md-6">
+                                            <label class="control-label mb-10" for="exampleInputuname_1">Vehicule</label>
+                                            <div class="input-group">
+                                                <div class="input-group-addon"><i class="icon-user"></i></div>
+                                                <input type="text" name="coutReservation" class="form-control" placeholder="nom" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="control-label mb-10" for="exampleInputuname_1">Chauffeur</label>
+                                            <div class="input-group">
+                                                <div class="input-group-addon"><i class="icon-user"></i></div>
+                                                <input type="text" name="coutReservation" class="form-control" placeholder="nom" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-6">
                                             <label class="control-label mb-10" for="exampleInputuname_1">Jour de reservation</label>
                                             <div class="input-group">
                                                 <div class="input-group-addon"><i class="icon-user"></i></div>
-                                                <input type="date" name="localEntreprise" class="form-control" placeholder="adresse" required>
+                                                    <input type="date" class="form-control" id="date" name="dateReservation" placeholder="jj/mm/aaaa" required>
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label class="control-label mb-10" for="exampleInputuname_1">Date de debut de Reservation</label>
+                                        <div class="form-group col-md-6">
+                                            <label class="control-label mb-10" for="exampleInputuname_1">Date de debut </label>
                                             <div class="input-group">
                                                 <div class="input-group-addon"><i class="icon-user"></i></div>
-                                                <input type="date" name="nccEntreprise" class="form-control" placeholder="numero" required>
+                                                <input type="date" name="dateDebut" class="form-control" placeholder="" required>
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label class="control-label mb-10" for="exampleInputuname_1">Date de Fin de Reservation</label>
+                                        <div class="form-group col-md-6">
+                                            <label class="control-label mb-10" for="exampleInputuname_1">Date de Fin </label>
                                             <div class="input-group">
                                                 <div class="input-group-addon"><i class="icon-user"></i></div>
-                                                <input type="date" name="emailEntreprise" class="form-control" placeholder="" required>
+                                                <input type="date" name="dateFin" class="form-control" placeholder="" required>
                                             </div>
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group col-md-10">
                                             <label class="control-label mb-10" for="exampleInputuname_1">Coût de la reservation</label>
                                             <div class="input-group">
                                                 <div class="input-group-addon"><i class="icon-user"></i></div>
-                                                <input type="numeric" name="telEntreprise1" class="form-control" placeholder="" required>
+                                                <input type="numeric" name="coutReservation" class="form-control" placeholder="" required>
                                             </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label mb-10" for="exampleInputuname_1">Etat de reservation</label>
-                                            <div class="input-group">
-                                                <div class="input-group-addon"><i class="icon-user"></i></div>
-                                                <input type="text" name="telEntreprise2" class="form-control" placeholder="" required>
-                                            </div>
-                                        </div>
+                                        </div> <br>
 
                                         <button type="submit" class="btn btn-success mr-10">Enregistrer</button>
-                                        <a  href="{{ route('reservations.liste') }}" class="btn btn-default">Retourner à la liste des reservation</a>
+                                        <a  href="{{ route('reservations.liste') }}" class="btn btn-default">Liste des reservation</a>
                                     </form>
                                 </div>
                             </div>
@@ -108,3 +114,4 @@
     </div>
 
 @endsection
+

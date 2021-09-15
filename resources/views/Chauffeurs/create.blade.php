@@ -35,7 +35,7 @@
                         </p>
                     </div>
                 @endif
-             </div>
+            </div>
 
 
         <div class="col-md-8">
@@ -82,7 +82,7 @@
                                         </div>
 
                                         <button type="submit" class="btn btn-success mr-10">Enregistrer</button>
-                                        <a  href="{{ route('chauffeurs.liste') }}" class="btn btn-default">Retourner à la liste des chauffeurs</a>
+                                        <a  href="{{ route('chauffeurs.liste') }}" class="btn btn-default">Liste des chauffeurs</a>
                                     </form>
                                 </div>
                             </div>

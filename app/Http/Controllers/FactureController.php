@@ -7,14 +7,14 @@ use Illuminate\Http\Request;
 
 class FactureController extends Controller
 {
-    public function affichefacture(){
+    public function affichefactureReservation(){
 
         $factures = Factures::orderBy("libelleFacture", "asc")->get();
 
-        return view('factures.liste', compact('factures'));
+        return view('factures.facturesReservation', compact('factures'));
     }
 
-    public function formfacture(){
-        return view('factures.create');
+    public function affichefactureEntretien(){
+        return view('factures.facturesEntretien');
     }
 }

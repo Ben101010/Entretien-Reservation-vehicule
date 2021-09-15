@@ -29,7 +29,7 @@ class ChauffeurController extends Controller
             'cniChauffeur' => $request -> cniChauffeur,
         ]);
         return  redirect()->route('employes.create')
-                          ->with("success", "Le chauffeur a été enregistré avec succès");
+                        ->with("success", "Le chauffeur a été enregistré avec succès");
     }
 
         // MODIFIER

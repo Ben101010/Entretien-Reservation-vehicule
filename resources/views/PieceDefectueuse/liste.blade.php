@@ -37,9 +37,19 @@
                 <div class="panel-wrapper collapse in">
                     <div class="panel-body">
 
+                        <div class="text-align center col-8 text-color">
+                            @if (session()->has('successDelete'))
+                                <div class="alert alert-danger">
+                                    <p>
+                                        <h5>{{ session()->get('successDelete') }}</h5>
+                                    </p>
+                                </div>
+                            @endif
+                        </div>
+
                         <div class="table-wrap">
                             <div class="table-responsive">
-                                <div id="datable_1_wrapper" class="dataTables_wrapper"><div class="dataTables_length" id="datable_1_length"></div><div id="datable_1_filter" class="dataTables_filter"><label>Recherche:<input type="search" class="" placeholder="" aria-controls="datable_1"></label></div><table id="datable_1" class="table table-hover display  pb-30 dataTable" role="grid" aria-describedby="datable_1_info">
+                                <div id="datable_1_wrapper" class="dataTables_wrapper"><div class="dataTables_length" id="datable_1_length"></div><table id="datable_1" class="table table-hover display  pb-30 dataTable" role="grid" aria-describedby="datable_1_info">
                                     <thead>
                                         <tr role="row">
                                             <th class="sorting_asc" tabindex="0" aria-controls="datable_1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="#: activate to sort column descending" style="width: 20px;">#</th>
@@ -49,6 +59,28 @@
                                             <th class="sorting" tabindex="0" aria-controls="datable_1" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending" style="width: 150px;">Action</th>
                                         </tr>
                                     </thead>
+
+
+                                    <tbody>
+                                            @foreach ($pieceDefectueuses as $pieceDefectueuse)
+                                        <tr role="row" class="odd">
+                                            <td class="sorting_1">{{ $loop->index + 1 }}</td>
+                                            <td>{{ $pieceDefectueuse->libellePiece }}</td>
+                                            <td>{{ $pieceDefectueuse->frnssr->nom }}</td>
+                                            @if ($pieceDefectueuse->mtnce)
+                                            <td>{{ $pieceDefectueuse->mtnce->libelleMaintenance }}</td>
+                                            @else
+                                            <td>Aucun libellé</td>
+                                            @endif
+
+                                            <td>
+                                                <a href="{{ route('PieceDefectueuse.modifier', ['id'=>$pieceDefectueuse->id]) }}" class="btn btn-info btn-anim"><i class="fa fa-pencil-square-o"></i><span class="btn-text">Modifier</span></a>
+                                                <a href="{{ route('PieceDefectueuse.delete', ['id'=>$pieceDefectueuse->id]) }}" class="btn btn-danger btn-anim"><i class="fa fa-trash-o"></i><span class="btn-text">Supprimer</span></a>
+                                            </td>
+                                        </tr>
+                                            @endforeach
+                                    </tbody>
+
                                     <tfoot>
                                         <tr><th rowspan="1" colspan="1">#</th>
                                             <th rowspan="1" colspan="1">Nom de pièce</th>
@@ -58,20 +90,6 @@
                                         </tr>
                                     </tfoot>
 
-                                    <tbody>
-                                        <tr role="row" class="odd">
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td>
-                                                <button class="btn btn-info btn-anim"><i class="fa fa-pencil-square-o"></i><span class="btn-text">Modifier</span></button>
-                                                <button class="btn btn-danger btn-anim"><i class="fa fa-trash-o"></i><span class="btn-text">Supprimer</span></button>
-                                            </td>
-                                        </tr>
-
-                                    </tbody>
-
                                 </table><div class="dataTables_info" id="datable_1_info" role="status" aria-live="polite"></div>
                             </div>
                         </div>
@@ -80,5 +98,14 @@
             </div>
         </div>
     </div>
+
+@endsection
+
+@section('scripts')
+    <script>
+    $(document).ready( function () {
+            $('#datable_1').dataTable();
+        } );
+    </script>
 
 @endsection

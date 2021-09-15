@@ -19,8 +19,8 @@ class CreateVehiculesTable extends Migration
             $table->string('typeTransmission');
             $table->string('couleur');
             $table->string('energie');
-            $table->foreignId("marque_id")->constrained();
-            $table->foreignId("modele_id")->constrained();
+            $table->unsignedInteger("marque_id")->constrained();
+            $table->unsignedInteger("modele_id")->constrained();
             $table->timestamps();
         });
 

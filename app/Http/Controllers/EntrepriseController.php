@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Entreprises;
+use App\Models\Particuliers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class EntrepriseController extends Controller
 {
@@ -33,6 +35,38 @@ class EntrepriseController extends Controller
 
          return redirect()->route('entreprises.create')
                           ->with('success', 'Entreprise crée avec succès.');
+
+    }
+
+            // MODIFIER
+     public function modifierentreprise ($id){
+
+        $entreprise = Entreprises::find($id);
+        foreach($entreprise as $entreprises);
+        return view('entreprises.modifier', compact('entreprise'));
+
+    }
+            // METTRE  A JOUR
+    public function Updateentreprise(Request $request){
+        DB::table('entreprises')->where('id', $request->id)->update([
+
+            "designEntreprise"     => $request -> designEntreprise,
+            "localEntreprise"      => $request -> localEntreprise,
+            "nccEntreprise"        => $request -> nccEntreprise,
+            "emailEntreprise"      => $request -> emailEntreprise,
+            "telEntreprise1"       => $request -> telEntreprise1,
+            "telEntreprise2"       => $request -> telEntreprise2,
+        ]);
+        return back()->with("success", "L'Entreprise' a été modifié !");
+    }
+
+            // SUPPRESSION
+
+    public function delete($id){
+
+        DB::table('entreprises')->where('id', $id)->delete();
+
+        return redirect()->route('entreprises.liste')->with("successDelete", "Entreprise Supprimé !");
 
     }
 }

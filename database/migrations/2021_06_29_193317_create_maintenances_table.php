@@ -16,7 +16,6 @@ class CreateMaintenancesTable extends Migration
         Schema::create('maintenances', function (Blueprint $table) {
             $table->id();
             $table->string("libelleMaintenance");
-            $table->ForeignId("facture_id")->constrained();
             $table->ForeignId("garage_id")->constrained();
             $table->ForeignId("vehicule_id")->constrained();
             $table->timestamps();

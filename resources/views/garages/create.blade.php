@@ -74,7 +74,7 @@
                                         </div>
 
                                         <button type="submit" class="btn btn-success mr-10">Enregistrer</button>
-                                        <a  href="{{ route('garages.liste') }}" class="btn btn-default">Retourner à la liste des garages</a>
+                                        <a  href="{{ route('garages.liste') }}" class="btn btn-default">Liste des garages</a>
                                     </form>
                                 </div>
                             </div>

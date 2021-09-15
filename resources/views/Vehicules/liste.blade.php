@@ -34,7 +34,7 @@
                         <h6 class="panel-title txt-dark"><u>Liste des Vehicules</u></h6>
                     </div>
                     <div class="pull-right">
-                        <a href="{{ route('particuliers.create') }}" class="btn btn-default btn-rounded"><i class="icon-user-follow mr-10"></i>Nouveau Vehicule</a>
+                        <a href="{{ route('Vehicules.create') }}" class="btn btn-default btn-rounded"><i class="icon-user-follow mr-10"></i>Nouveau Vehicule</a>
                     </div>
                     <div class="clearfix"></div>
                 </div>
@@ -43,7 +43,7 @@
 
                         <div class="table-wrap">
                             <div class="table-responsive">
-                                <div id="datable_1_wrapper" class="dataTables_wrapper"><div class="dataTables_length" id="datable_1_length"></div><div id="datable_1_filter" class="dataTables_filter"><label>Recherche:<input type="search" class="" placeholder="" aria-controls="datable_1"></label></div><table id="datable_1" class="table table-hover display  pb-30 dataTable" role="grid" aria-describedby="datable_1_info">
+                                <div id="datable_1_wrapper" class="dataTables_wrapper"><div class="dataTables_length" id="datable_1_length"></div><table id="datable_1" class="table table-hover display  pb-30 dataTable" role="grid" aria-describedby="datable_1_info">
                                     <thead>
                                         <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="datable_1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="#: activate to sort column descending" style="width: 90px;">#</th>
                                             <th class="sorting_asc" tabindex="0" aria-controls="datable_1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 210px;">Marques</th>
@@ -89,9 +89,19 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
     </div>
+
+@endsection
+
+@section('scripts')
+    <script>
+    $(document).ready( function () {
+            $('#datable_1').dataTable();
+        } );
+    </script>
 
 @endsection

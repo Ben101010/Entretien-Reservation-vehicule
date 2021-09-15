@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Garages;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class GarageController extends Controller
 {
@@ -32,4 +33,32 @@ class GarageController extends Controller
                           ->with('success', 'Le garage a été crée avec succès.');
 
      }
+
+             // MODIFIER
+    public function modifierGarage ($id){
+
+        $garage = Garages::find($id);
+        foreach($garage as $marques);
+        return view('garages.modifier', compact('garage'));
+
+    }
+            // METTRE  A JOUR
+    public function UpdateGarage(Request $request){
+        DB::table('garages')->where('id', $request->id)->update([
+            "nom"           => $request -> nom,
+            "numeroGarage"  => $request -> numeroGarage,
+            "adresseGarage" => $request -> adresseGarage,
+        ]);
+        return back()->with("success", "Le garage a été modifié !");
+    }
+
+            // SUPPRESSION
+
+    public function delete($id){
+
+        DB::table('garages')->where('id', $id)->delete();
+
+        return redirect()->route('garages.liste')->with("successDelete", "Garage Supprimé !");
+
+    }
 }

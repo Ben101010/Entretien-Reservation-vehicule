@@ -1,7 +1,8 @@
 @extends("layouts.master")
 
 @section("styles")
-
+<!-- Bootstrap Colorpicker CSS -->
+<link href="{{ asset('vendors/bower_components/mjolnic-bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css') }}" rel="stylesheet" type="text/css"/>
 @endsection
 
 @section("content")
@@ -23,7 +24,7 @@
     <!-- /Title -->
 
 
-<form action={{ route('particuliers.store') }} method = "POST">
+<form action={{ route('Vehicules.store') }} method = "POST">
 
         @csrf
 
@@ -36,7 +37,7 @@
                     </p>
                 </div>
             @endif
-         </div>
+        </div>
 
         <div class="col-md-10">
             <div class="panel panel-default card-view">
@@ -54,53 +55,56 @@
                                     <form>
                                         <div class="form-group col-md-6">
                                             <label class="control-label mb-10" for="exampleInputuname_1">Marque</label>
-                                            <select class="form-control">
-                                                <option>----</option>
-                                                <option>Mercedes</option>
-                                                <option>BMW</option>
-                                                <option>Range Rover</option>
+                                            <select class="form-control" name="marque" >
+                                                <option selected disable>--Selectionner--</option>
+                                                    @foreach ($marques as $marque)
+                                                            <option value="$marque->id">{{ $marque->libelleMarque }}</option>
+                                                    @endforeach
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="control-label mb-10" for="exampleInputEmail_1">Modèle</label>
+                                            <select class="form-control" name="modele">
+                                                <option selected disable>--Selectionner--</option>
+                                                    @foreach ($modeles as $modele )
+                                                        <option value="$modele->id">{{ $modele->libelleVehicule }}</option>
+                                                    @endforeach
                                             </select>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label class="control-label mb-10" for="exampleInputuname_1">Immatriculation</label>
                                             <div class="input-group">
                                                 <div class="input-group-addon"><i class="icon-user"></i></div>
-                                                <input type="text" name="prenom" class="form-control" id="exampleInputuname_1" required>
+                                                <input type="text" name="immatriculationVehicule" class="form-control" id="exampleInputuname_1" required>
                                             </div>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label class="control-label mb-10" for="exampleInputuname_1">Energie</label>
-                                            <div class="input-group">
-                                                <div class="input-group-addon"><i class="icon-user"></i></div>
-                                                <input type="text" name="telParticulier1" class="form-control" id="exampleInputuname_1" required>
-                                            </div>
+                                            <select class="form-control" name="energie">
+                                                <option selected disabled>--Selectionner--</option>
+                                                <option value="essence">Essence</option>
+                                                <option value="diesel">Diesel</option>
+                                                <option value="electrique">Electrique</option>
+                                            </select>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label class="control-label mb-10" for="exampleInputuname_1">Couleur</label>
-                                            <div class="input-group">
-                                                <div class="input-group-addon"><i class="icon-user"></i></div>
-                                                <input type="text" name="telParticulier2" class="form-control" id="exampleInputuname_1" required>
+                                            <div  class="colorpicker input-group colorpicker-component">
+                                                <input type="text" value="#00AABB" class="form-control" />
+                                                <span class="input-group-addon"><i></i></span>
                                             </div>
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                            <label class="control-label mb-10" for="exampleInputEmail_1">Modèle</label>
-                                                <select class="form-control">
-                                                    <option>-----</option>
-                                                    <option>Class-A</option>
-                                                    <option>E-46</option>
-                                                    <option>Vela</option>
-                                                </select>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label class="control-label mb-10" for="exampleInputEmail_1">Type Transmission</label>
-                                            <div class="input-group">
-                                                <div class="input-group-addon"><i class="icon-envelope-open"></i></div>
-                                                <input type="email" name="emailParticulier" class="form-control" id="exampleInputEmail_1" required>
-                                            </div>
+                                            <select class="form-control" name="typeTransmission">
+                                                <option selected disabled>--Selectionner--</option>
+                                                <option value="manuel">Manuel</option>
+                                                <option value="automatique">Automatique</option>
+                                            </select>
                                         </div>
 
                                         <button type="submit" class="btn btn-success mr-10">Enregistrer</button>
-                                        <a  href="{{ route('particuliers.liste') }}" class="btn btn-default">Retourner à la liste des vehicules</a>
+                                        <a  href="{{ route('Vehicules.liste') }}" class="btn btn-default">Liste des vehicules</a>
                                     </form>
                                 </div>
                             </div>
@@ -110,5 +114,10 @@
             </div>
         </div>
     </div>
+
+@endsection
+
+@section('scripts')
+
 
 @endsection

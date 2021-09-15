@@ -45,33 +45,28 @@
                                     </p>
                                 </div>
                             @endif
-                         </div>
+                        </div>
 
                         <div class="table-wrap">
                             <div class="table-responsive">
-                                <div id="datable_1_wrapper" class="dataTables_wrapper"><div class="dataTables_length" id="datable_1_length"></div><div id="datable_1_filter" class="dataTables_filter"><label>Recherche:<input type="search" class="" placeholder="" aria-controls="datable_1"></label></div><table id="datable_1" class="table table-hover display  pb-30 dataTable" role="grid" aria-describedby="datable_1_info">
-                                    <thead>
-                                        <tr role="row">
-                                            <th class="sorting_asc" tabindex="0" aria-controls="datable_1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="#: activate to sort column descending" style="width: 90px;">#</th>
-                                            <th class="sorting_asc" tabindex="0" aria-controls="datable_1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 210px;">Nom</th>
-                                            <th class="sorting_asc" tabindex="0" aria-controls="datable_1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="lastName: activate to sort column descending" style="width: 210px;">Prenom</th>
-                                            <th class="sorting_asc" tabindex="0" aria-controls="datable_1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 210px;">Téléphone</th>
-                                            <th class="sorting" tabindex="0" aria-controls="datable_1" rowspan="1" colspan="1" aria-label="Number: activate to sort column ascending" style="width: 210px;">Numero CNI</th>
-                                            <th class="sorting" tabindex="0" aria-controls="datable_1" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending" style="width: 500px;">Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr><th rowspan="1" colspan="1">#</th><th rowspan="1" colspan="1">Nom</th>
-                                            <th rowspan="1" colspan="1">Prenom</th>
-                                            <th rowspan="1" colspan="1">Téléphone</th>
-                                            <th rowspan="1" colspan="1">Numéro CNI</th>
-                                            <th rowspan="1" colspan="1">Action</th></tr>
-                                    </tfoot>
-                                    @foreach ($chauffeurs as $chauffeur)
+                                <div id="datable_1_wrapper" class="dataTables_wrapper"><div class="dataTables_length" id="datable_1_length"></div><div id="datable_1_filter" class="dataTables_filter"></div>
+                                    <table id="datable_1" class="table table-hover display  pb-30 dataTable" role="grid" aria-describedby="datable_1_info">
+                                        <thead>
+                                            <tr role="row">
+                                                <th class="sorting_asc" tabindex="0" aria-controls="datable_1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="#: activate to sort column descending" style="width: 90px;">#</th>
+                                                <th class="sorting_asc" tabindex="0" aria-controls="datable_1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 210px;">Nom</th>
+                                                <th class="sorting_asc" tabindex="0" aria-controls="datable_1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="lastName: activate to sort column descending" style="width: 210px;">Prenom</th>
+                                                <th class="sorting_asc" tabindex="0" aria-controls="datable_1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 210px;">Téléphone</th>
+                                                <th class="sorting" tabindex="0" aria-controls="datable_1" rowspan="1" colspan="1" aria-label="Number: activate to sort column ascending" style="width: 210px;">Numero CNI</th>
+                                                <th class="sorting" tabindex="0" aria-controls="datable_1" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending" style="width: 500px;">Action</th>
+                                            </tr>
+                                        </thead>
+
 
                                     <tbody>
+                                        @foreach ($chauffeurs as $chauffeur)
                                         <tr role="row" class="odd">
-                                            <td class="sorting_1">{{ $loop->index + 1 }}</td>
+                                            <td class="sorting_1">C{{ $loop->index + 1 }}</td>
                                             <td>{{ $chauffeur->nom }}</td>
                                             <td>{{ $chauffeur->prenom }}</td>
                                             <td>{{ $chauffeur->telChauffeur }}</td>
@@ -84,7 +79,17 @@
                                         @endforeach
                                     </tbody>
 
-                                </table><div class="dataTables_info" id="datable_1_info" role="status" aria-live="polite"></div>
+
+                                    <tfoot>
+                                        <tr><th rowspan="1" colspan="1">#</th><th rowspan="1" colspan="1">Nom</th>
+                                            <th rowspan="1" colspan="1">Prenom</th>
+                                            <th rowspan="1" colspan="1">Téléphone</th>
+                                            <th rowspan="1" colspan="1">Numéro CNI</th>
+                                            <th rowspan="1" colspan="1">Action</th></tr>
+                                    </tfoot>
+
+                                </table>
+                                <div class="dataTables_info" id="datable_1_info" role="status" aria-live="polite"></div>
                             </div>
                         </div>
                     </div>
@@ -92,5 +97,14 @@
             </div>
         </div>
     </div>
+
+@endsection
+
+@section('scripts')
+    <script>
+    $(document).ready( function () {
+            $('#datable_1').dataTable();
+        } );
+    </script>
 
 @endsection

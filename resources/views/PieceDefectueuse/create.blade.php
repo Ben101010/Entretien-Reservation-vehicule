@@ -46,21 +46,25 @@
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label mb-10" for="exampleInputEmail_1">Nom Fournisseur</label>
-                                            <div class="input-group">
-                                                <div class="input-group-addon"><i class="icon-envelope-open"></i></div>
-                                                <input type="text" name="adresseGarage" class="form-control" required>
-                                            </div>
+                                            <select class="form-control" name="fournisseur" >
+                                                <option selected disable>--Selectionner--</option>
+                                                    @foreach ($fournisseurs as $fournisseur)
+                                                            <option value="$fournisseur->id">{{ $fournisseur->nom }}</option>
+                                                    @endforeach
+                                            </select>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label mb-10" for="exampleInputEmail_1">Type de maintenance</label>
-                                            <div class="input-group">
-                                                <div class="input-group-addon"><i class="icon-envelope-open"></i></div>
-                                                <input type="text" name="adresseGarage" class="form-control" required>
-                                            </div>
+                                            <select class="form-control" name="maintenance" >
+                                                <option selected disable>--Selectionner--</option>
+                                                    @foreach ($maintenances as $maintenance)
+                                                            <option value="$maintenance->id">{{ $maintenance->libelleMaintenance }}</option>
+                                                    @endforeach
+                                            </select>
                                         </div>
 
                                         <button type="submit" class="btn btn-success mr-10">Enregistrer</button>
-                                        <a  href="{{ route('PieceDefectueuse.liste') }}" class="btn btn-default">Retourner à la liste des pièces</a>
+                                        <a  href="{{ route('PieceDefectueuse.liste') }}" class="btn btn-default">Liste des pièces</a>
                                     </form>
                                 </div>
                             </div>

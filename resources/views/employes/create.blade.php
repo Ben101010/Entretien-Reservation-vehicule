@@ -95,7 +95,7 @@
                                         </div>
 
                                         <button type="submit" class="btn btn-success mr-10">Enregistrer</button>
-                                        <a  href="{{ route('employes.liste') }}" class="btn btn-default">Retourner à la liste des employés</a>
+                                        <a  href="{{ route('employes.liste') }}" class="btn btn-default">Liste des employés</a>
                                     </form>
                                 </div>
                             </div>

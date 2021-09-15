@@ -22,7 +22,7 @@ class EmployeController extends Controller
 
     public function store (Request $request) {
 
-       $request->validate([
+         $request->validate([
             'nom'        => 'required | max:255',
             'prenom'     => 'required | max:255',
             'telEmploye' => 'required | max:10 | numeric',
@@ -33,8 +33,7 @@ class EmployeController extends Controller
 
         Employes::create($request->all());
 
-        return redirect()->route('employes.create')
-                         ->with('success', 'Employe crée avec succès.');
+        return redirect()->route('employes.create') ->with('success', 'Employe crée avec succès.');
 
     }
 

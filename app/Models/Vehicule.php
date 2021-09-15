@@ -14,20 +14,20 @@ class Vehicule extends Model
 {
     use HasFactory;
 
-    public function mrqe(){
+    public function marque(){
         return $this->belongsTo("Marques::class","marque_id", "id");
     }
 
-    public function mdle(){
+    public function modele(){
         return $this->belongsTo("Modele::class","modele_id", "id");
     }
 
-    public function reservations(){
+    public function reservation(){
         return $this->belongsToMany("Reservation::class","ligne_reservations","vehicule_id", "reservation_id")->withPivot('dateDepart',
         'dateArrive', 'kmDepart', 'kmArrive')->withTimestamps();
     }
 
-    public function natureRevisions(){
+    public function natureRevision(){
         return $this->belongsToMany("NatureRevision,::class", "est_revisionner", "vehicule_id", "natureRevision_id")->withTimestamps();
     }
 
@@ -36,5 +36,14 @@ class Vehicule extends Model
         return $this->hasMany("Maintenance::class","maintenance_id", "id");
     }
 
+
+    protected $fillable = [
+        'immatriculationVehicule',
+        'typeTransmission',
+        'couleur',
+        'energie',
+        'marque_id',
+        'modele_id',
+    ];
 
 }

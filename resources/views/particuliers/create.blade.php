@@ -89,7 +89,7 @@
                                         </div>
 
                                         <button type="submit" class="btn btn-success mr-10">Enregistrer</button>
-                                        <a  href="{{ route('particuliers.liste') }}" class="btn btn-default">Retourner à la liste des particuliers</a>
+                                        <a  href="{{ route('particuliers.liste') }}" class="btn btn-default">Liste des particuliers</a>
                                     </form>
                                 </div>
                             </div>
